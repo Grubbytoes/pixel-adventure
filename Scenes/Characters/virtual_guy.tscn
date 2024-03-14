@@ -245,6 +245,8 @@ size = Vector2(16, 20)
 
 [node name="VirtualGuy" type="CharacterBody2D"]
 script = ExtResource("1_vcjgq")
+speed = null
+currently_controlled = null
 
 [node name="anim" type="AnimationPlayer" parent="."]
 root_node = NodePath("../sprite")
@@ -259,10 +261,3 @@ offset = Vector2(0, -6)
 
 [node name="col" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_d6hw2")
-
-[node name="cam" type="Camera2D" parent="."]
-position = Vector2(1, -1)
-offset = Vector2(0, -30)
-zoom = Vector2(2, 2)
-position_smoothing_enabled = true
-position_smoothing_speed = 8.0

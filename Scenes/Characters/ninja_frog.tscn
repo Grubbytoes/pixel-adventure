@@ -252,10 +252,3 @@ root_node = NodePath("../sprite")
 libraries = {
 "": SubResource("AnimationLibrary_dokcn")
 }
-
-[node name="cam" type="Camera2D" parent="."]
-position = Vector2(1, -1)
-offset = Vector2(0, -30)
-zoom = Vector2(2, 2)
-position_smoothing_enabled = true
-position_smoothing_speed = 8.0
