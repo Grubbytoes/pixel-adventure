@@ -6,6 +6,21 @@
 [ext_resource type="Texture2D" uid="uid://4l3h1gns0yek" path="res://Sprites/Main Characters/Virtual Guy/Jump (32x32).png" id="2_amc76"]
 [ext_resource type="Texture2D" uid="uid://c6003yygl1fga" path="res://Sprites/Main Characters/Virtual Guy/Run (32x32).png" id="2_m0o5o"]
 
+[sub_resource type="Animation" id="Animation_plnc1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_aiecl"]
 resource_name = "jump"
 length = 0.3
@@ -20,21 +35,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(0.6, 1.5), Vector2(1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_plnc1"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dokcn"]
@@ -259,3 +259,10 @@ offset = Vector2(0, -6)
 
 [node name="col" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_d6hw2")
+
+[node name="cam" type="Camera2D" parent="."]
+position = Vector2(1, -1)
+offset = Vector2(0, -30)
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true
+position_smoothing_speed = 8.0
