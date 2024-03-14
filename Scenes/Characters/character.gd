@@ -96,7 +96,6 @@ func _process(delta):
 	velocity = apply_gravity(velocity)
 	update_animation()
 
-	print(velocity)
 	move_and_slide()
 
 

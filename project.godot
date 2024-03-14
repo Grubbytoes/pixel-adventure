@@ -15,6 +15,10 @@ run/main_scene="res://Scenes/thing.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://Sprites/Main Characters/Virtual Guy/Fall (32x32).png"
 
+[autoload]
+
+GoConductor="*res://GoConductor/Stages/Main.tscn"
+
 [display]
 
 window/size/viewport_width=960
