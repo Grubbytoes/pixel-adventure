@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://boi8ya8f3qv0b"]
+
+[ext_resource type="Script" path="res://Scenes/objects/pushable_block.gd" id="1_5q13m"]
+[ext_resource type="Texture2D" uid="uid://ncfqcgr7riac" path="res://Sprites/Terrain/Terrain (16x16).png" id="1_mmar2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_31n3n"]
+atlas = ExtResource("1_mmar2")
+region = Rect2(208, 144, 32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hqnab"]
+size = Vector2(30, 30)
+
+[node name="pushable_block" type="RigidBody2D"]
+position = Vector2(-55, -12)
+lock_rotation = true
+freeze_mode = 1
+script = ExtResource("1_5q13m")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_31n3n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_hqnab")

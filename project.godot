@@ -1,0 +1,33 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Pixel Adventure"
+run/main_scene="res://Scenes/thing.tscn"
+config/features=PackedStringArray("4.1", "Forward Plus")
+config/icon="res://Sprites/Main Characters/Virtual Guy/Fall (32x32).png"
+
+[display]
+
+window/size/viewport_width=960
+window/size/viewport_height=640
+window/size/initial_position_type=2
+window/size/resizable=false
+window/stretch/mode="canvas_items"
+
+[dotnet]
+
+project/assembly_name="Pixel Adventure"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+environment/defaults/default_clear_color=Color(0.627451, 0.85098, 0.937255, 0.356863)
