@@ -40,11 +40,14 @@ func move_by_input(v: Vector2) -> Vector2:
 		face_right = false
 		$sprite.flip_h = !face_right
 	
-	if Input.is_action_just_pressed("ui_up") and is_on_floor():
-		vn = jump(vn)
+	if can_jump(): vn = jump(vn)
 
 	vn.x *= 200
 	return vn
+
+
+func can_jump() -> bool:
+	return Input.is_action_just_pressed("ui_up") and is_on_floor()
 
 
 func jump(v: Vector2) -> Vector2:
@@ -55,9 +58,9 @@ func jump(v: Vector2) -> Vector2:
 	
 	$anim.play("jump")
 	
-	var vn = Vector2.ZERO
-	vn.y -= 250
-	return vn + v
+	var vn = v
+	vn.y = -250
+	return vn
 	
 
 func woosh_time_over():

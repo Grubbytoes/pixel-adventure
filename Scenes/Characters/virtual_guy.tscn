@@ -245,8 +245,6 @@ size = Vector2(16, 20)
 
 [node name="VirtualGuy" type="CharacterBody2D"]
 script = ExtResource("1_vcjgq")
-speed = null
-currently_controlled = null
 
 [node name="anim" type="AnimationPlayer" parent="."]
 root_node = NodePath("../sprite")

@@ -766,7 +766,6 @@ script = ExtResource("1_ebt7o")
 [node name="virtual_guy" parent="." node_paths=PackedStringArray("buddy") instance=ExtResource("1_ff5l7")]
 position = Vector2(-220, 4)
 buddy = NodePath("../ninja_frog")
-currently_controlled = true
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_s8h0k")
