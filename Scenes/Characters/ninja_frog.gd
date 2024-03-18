@@ -10,15 +10,9 @@ func can_jump() -> bool:
 		double_jump = true
 		return true
 	elif double_jump:
-		do_double_jump()
-		return false
+		double_jump = false
+		return true
 	return false
-
-
-func do_double_jump():
-	double_jump = false
-	velocity = jump(velocity)
-	$anim.play("double_jump")
 
 
 func _process(delta):

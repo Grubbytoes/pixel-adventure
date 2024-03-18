@@ -16,6 +16,7 @@ func to_vr_guy():
 func _ready():
 	$virtual_guy.currently_controlled = true
 	to_vr_guy()
+	GoConductor.load_stage("mystage")
 
 
 func _process(_delta):
