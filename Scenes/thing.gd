@@ -7,12 +7,12 @@ var player_character: Character
 
 func to_frog():
 	player_character = $ninja_frog
-	GoConductor.unstage("mystage")
+	GoConductor.unstage("stage")
 	
 
 func to_vr_guy():
 	player_character = $virtual_guy
-	GoConductor.load_stage("mystage")
+	GoConductor.load_stage("mystage", "stage")
 
 
 func _ready():
