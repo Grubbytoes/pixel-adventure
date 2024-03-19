@@ -5,8 +5,10 @@ extends Node2D
 func say_hello():
     print("Hello, from GoConductor!")
 
+
 func get_stage(stage_name) -> Node:
-    return _stages.get(stage_name)
+    return _stages.get(stage_name).pointer
+
 
 ## Loads the stage of the given name from the stages directory. Returns true if successful
 ## Path does NOT need to include '.tsct' or the root stages directory

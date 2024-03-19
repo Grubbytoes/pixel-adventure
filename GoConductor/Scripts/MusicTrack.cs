@@ -147,4 +147,9 @@ public partial class MusicTrack : GcMusicNode
         FinalTrackVolume = AudioPlayer.VolumeDb;
         AudioPlayer.Finished += TrackEnd;
     }
+
+    // public override void _enter_tree()
+    // {
+
+    // }
 }

@@ -1,3 +1,13 @@
-[gd_scene format=3 uid="uid://dx0lq2cyfxig1"]
+[gd_scene load_steps=4 format=3 uid="uid://cl4yxjqgh1l03"]
 
-[node name="Mystage" type="Node2D"]
+[ext_resource type="PackedScene" uid="uid://dx0lq2cyfxig1" path="res://GoConductor/Stages/BaseStage.tscn" id="1_f1qr3"]
+[ext_resource type="PackedScene" uid="uid://ceoncjdq5abt2" path="res://GoConductor/Nodes/TrackSwitch.tscn" id="2_2cpci"]
+[ext_resource type="PackedScene" uid="uid://b10lkyidju0a2" path="res://GoConductor/Nodes/SimpleTrackPlayer.tscn" id="3_f3cqf"]
+
+[node name="mystage" instance=ExtResource("1_f1qr3")]
+
+[node name="TrackSwitch" parent="." index="0" instance=ExtResource("2_2cpci")]
+
+[node name="SimpleTrackPlayer3" parent="TrackSwitch" index="0" instance=ExtResource("3_f3cqf")]
+
+[node name="SimpleTrackPlayer" parent="TrackSwitch" index="1" instance=ExtResource("3_f3cqf")]
