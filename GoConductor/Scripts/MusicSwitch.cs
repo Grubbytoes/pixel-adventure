@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using GoConductorPlugin.addons.go_conductor__.transition;
 using Godot;
@@ -49,9 +49,7 @@ public partial class MusicSwitch: MultiMusicPlayer
     /// <param name="newTrack">Name of the track as it exists as a node</param>
     /// <returns>true if track changed as a result </returns>
     public override bool Cue(GcMusicNode newTrack)
-    {
-        GD.Print("PONG!!!");
-        
+    {        
         // Exit if new track is null
         if (newTrack == null)
         {
