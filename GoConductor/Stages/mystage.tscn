@@ -8,6 +8,6 @@
 
 [node name="TrackSwitch" parent="." index="0" instance=ExtResource("2_2cpci")]
 
-[node name="SimpleTrackPlayer3" parent="TrackSwitch" index="0" instance=ExtResource("3_f3cqf")]
+[node name="SimpleTrackPlayer" parent="TrackSwitch" index="0" instance=ExtResource("3_f3cqf")]
 
-[node name="SimpleTrackPlayer" parent="TrackSwitch" index="1" instance=ExtResource("3_f3cqf")]
+[node name="TrackSwitch" parent="TrackSwitch" index="1" instance=ExtResource("2_2cpci")]
