@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Godot;
 
-namespace GoConductorPlugin.addons.go_conductor__.transition;
+namespace GoConductor;
 
 /// <summary>
 /// Once started, fades one or more tracks in or out. Tracks faded out are stopped once the transition is over

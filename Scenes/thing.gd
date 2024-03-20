@@ -7,12 +7,12 @@ var player_character: Character
 
 func to_frog():
 	player_character = $ninja_frog
-	GoConductor.get_stage("music").Cue("vr")
+	GoConductor.get_stage("music").CueName("vr")
 	
 
 func to_vr_guy():
 	player_character = $virtual_guy
-	GoConductor.get_stage("music").Cue("frog")
+	GoConductor.get_stage("music").CueName("frog")
 
 
 func _ready():

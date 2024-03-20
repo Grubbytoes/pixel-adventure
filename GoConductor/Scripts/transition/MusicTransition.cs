@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Godot;
 
-namespace GoConductorPlugin.addons.go_conductor__.transition;
+namespace GoConductor;
 
 
 /// <summary>

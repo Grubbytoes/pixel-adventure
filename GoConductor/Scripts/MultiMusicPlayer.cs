@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Godot;
 
-namespace GoConductorPlugin.addons.go_conductor__;
+namespace GoConductor;
 
 public abstract partial class MultiMusicPlayer : GcMusicNode
 {

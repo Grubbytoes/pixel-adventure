@@ -1,4 +1,4 @@
-﻿namespace GoConductorPlugin.addons.go_conductor__;
+﻿namespace GoConductor;
 
 public interface IMusicController
 {

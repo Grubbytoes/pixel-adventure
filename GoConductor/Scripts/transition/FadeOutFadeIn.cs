@@ -1,4 +1,4 @@
-﻿namespace GoConductorPlugin.addons.go_conductor__.transition;
+﻿namespace GoConductor;
 
 // TODO Doesn't work
 public partial class FadeOutFadeIn : MusicTransition
