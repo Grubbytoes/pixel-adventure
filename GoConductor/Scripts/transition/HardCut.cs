@@ -1,4 +1,4 @@
-﻿namespace GoConductorPlugin.addons.go_conductor__.transition;
+﻿namespace GoConductor;
 
 /// <summary>
 /// Easiest thing in the world, just straight stops one track and starts the other

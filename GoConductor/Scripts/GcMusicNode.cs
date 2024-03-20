@@ -1,6 +1,6 @@
 using Godot;
 
-namespace GoConductorPlugin.addons.go_conductor__;
+namespace GoConductor;
 
 public abstract partial class GcMusicNode : Node, IMusicController
 {

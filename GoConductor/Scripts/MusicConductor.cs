@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Godot;
 
-namespace GoConductorPlugin.addons.go_conductor__;
+namespace GoConductor;
 
 public partial class MusicConductor : MultiMusicPlayer
 {

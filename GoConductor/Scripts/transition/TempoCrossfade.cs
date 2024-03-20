@@ -1,6 +1,6 @@
 ﻿using Godot;
 
-namespace GoConductorPlugin.addons.go_conductor__.transition;
+namespace GoConductor;
 
 public partial class TempoCrossfade : MusicTransition
 {
