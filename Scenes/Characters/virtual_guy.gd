@@ -7,3 +7,11 @@ func _process(delta):
 		var o = get_slide_collision(i).get_collider()
 		if o.has_method("be_pushed"):
 			o.be_pushed(face_right)
+
+
+func on_targeted():
+	pass
+
+
+func on_targeted_stopped():
+	pass

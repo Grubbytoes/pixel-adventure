@@ -104,15 +104,6 @@ func recieve_control(from: PlayerCharacter):
 	from.pass_control_buffer.timeout.disconnect(recieve_control)
 
 
-func on_targeted():
-	GoConductor.get_stage("music").CurrentlyPlaying.CueInIdx(1)
-
-
-func on_targeted_stopped():
-	print(GoConductor.get_stage("music").CurrentlyPlaying.name)
-	GoConductor.get_stage("music").CurrentlyPlaying.CueOutIdx(1)
-
-
 func _process(delta):
 	if currently_controlled:
 		velocity = move_by_input(velocity)
