@@ -39,13 +39,22 @@ public abstract partial class MultiMusicPlayer : GcMusicNode
         return null;
     }
 
+    /// <summary>
+    /// Finds the given track by name, and calls the Cue method on it
+    /// </summary>
+    /// <param name="trackName"></param>
+    /// <returns>True if found</returns>
     public bool CueName(string trackName)
     {
-        GD.Print("PING");
         var track = GetTrack(trackName);
         return track != null && Cue(track);
     }
 
+    /// <summary>
+    /// Finds the given track by index, and calls the Cue method on it
+    /// </summary>
+    /// <param name="idx"></param>
+    /// <returns>True if found</returns>
     public bool CueIdx(int idx)
     {
         var track = GetTrack(idx);
