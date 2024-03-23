@@ -10,14 +10,9 @@ signal swapped_in
 
 var currently_controlled = false
 var face_right = true
-var grav_excempt = false
-var grav_v = 0.0
-var anim: Anim
 
-@onready var sprite = $sprite
 @onready var woosh_time = Timer.new()
 @onready var pass_control_buffer = Timer.new()
-
 
 # Animation enum
 enum Anim {IDLE, RUN, AIR_UP, AIR_DOWN}
@@ -28,10 +23,10 @@ func move_by_input(v: Vector2) -> Vector2:
 	
 	if Input.is_action_pressed("ui_left"):
 		vn.x -= 1
-		anim = Anim.RUN
+		anim = "run"
 	if Input.is_action_pressed("ui_right"):
 		vn.x += 1
-		anim = Anim.RUN
+		anim = "run"
 	
 	if Input.is_action_just_pressed("ui_right"):
 		face_right = true
@@ -81,25 +76,13 @@ func apply_gravity(v: Vector2) -> Vector2:
 
 	# Animation
 	if !is_on_floor() and velocity.y > 0:
-		anim = Anim.AIR_DOWN
+		anim = "air_down"
 	elif velocity.y < 0:
-		anim = Anim.AIR_UP
+		anim = "air_up"
 	elif velocity == Vector2.ZERO:
-		anim = Anim.IDLE
+		anim = anim_base
 	
 	return vn
-		
-
-func update_animation():
-	match anim:
-		Anim.IDLE:
-			sprite.play("idle")
-		Anim.RUN:
-			sprite.play("run")
-		Anim.AIR_DOWN:
-			sprite.play("air_down")
-		Anim.AIR_UP:
-			sprite.play("air_up")
 
 
 func pass_control(to: PlayerCharacter):
@@ -135,6 +118,7 @@ func _process(delta):
 
 
 func _ready():
+	anim_base = "idle"
 	woosh_time.one_shot = true
 	add_child(woosh_time)
 	add_child(pass_control_buffer)
