@@ -1,4 +1,4 @@
-extends Character
+extends PlayerCharacter
 
 
 func _process(delta):

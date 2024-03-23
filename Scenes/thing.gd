@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var camera = $camera
 
-var player_character: Character
+var player_character: PlayerCharacter
 
 
 func to_frog():

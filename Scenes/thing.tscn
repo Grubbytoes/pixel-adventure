@@ -782,5 +782,7 @@ zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 position_smoothing_speed = 8.0
 
+[node name="Enemy" type="CharacterBody2D" parent="."]
+
 [connection signal="swapped_in" from="virtual_guy" to="." method="to_vr_guy"]
 [connection signal="swapped_in" from="ninja_frog" to="." method="to_frog"]
