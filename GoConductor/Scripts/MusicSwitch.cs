@@ -67,7 +67,7 @@ public partial class MusicSwitch: MultiMusicPlayer
 		{
 			// Abort the transition if there is one in progress, and instance a new one
 			_transition?.Kill();
-			_transition = new FadeOutFadeIn(this, TransitionTime);
+			_transition = new Crossfade(this, TransitionTime);
 			
 			// Add the tracks to be tweened
 			_transition.AddIncomingTrack(newTrack);
