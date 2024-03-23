@@ -6,11 +6,10 @@ const TERMINAL_VELOCITY = 300
 signal swapped_out
 signal swapped_in
 
-@export var buddy: PlayerCharacter
-
 var currently_controlled = false
 var face_right = true
 
+@export var buddy: PlayerCharacter
 @onready var woosh_time = Timer.new()
 @onready var pass_control_buffer = Timer.new()
 
