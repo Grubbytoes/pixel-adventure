@@ -1,13 +1,6 @@
 extends PlayerCharacter
 
 
-func on_targeted():
-	print("beep")
-
-
-func on_targeted_stopped():
-	print("boop")
-
 func _process(delta):
 	super._process(delta)
 	for i in get_slide_collision_count():

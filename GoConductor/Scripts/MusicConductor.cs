@@ -117,6 +117,7 @@ public partial class MusicConductor : MultiMusicPlayer
     public bool CueInIdx(int idx)
     {
         var track = GetTrack(idx);
+        DebugPrint(track.Name);
         return CueIn(track);
     }
 
