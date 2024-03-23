@@ -4,3 +4,7 @@
 Sprites/
 Music/
 global.json
+
+# VScode shit
+.vscode
+Pixel Adventure.code-workspace

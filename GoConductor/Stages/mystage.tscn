@@ -1,21 +1,37 @@
-[gd_scene load_steps=6 format=3 uid="uid://cl4yxjqgh1l03"]
+[gd_scene load_steps=8 format=3 uid="uid://cl4yxjqgh1l03"]
 
 [ext_resource type="PackedScene" uid="uid://dx0lq2cyfxig1" path="res://GoConductor/Stages/BaseStage.tscn" id="1_f1qr3"]
 [ext_resource type="PackedScene" uid="uid://ceoncjdq5abt2" path="res://GoConductor/Nodes/TrackSwitch.tscn" id="2_2cpci"]
 [ext_resource type="PackedScene" uid="uid://b10lkyidju0a2" path="res://GoConductor/Nodes/SimpleTrackPlayer.tscn" id="3_f3cqf"]
+[ext_resource type="PackedScene" uid="uid://6ld7k877cli" path="res://GoConductor/Nodes/TrackConductor.tscn" id="3_nmtp8"]
 [ext_resource type="AudioStream" uid="uid://cjdmgykpg0ut7" path="res://Music/tangerine-song/backing.mp3" id="4_j26q5"]
 [ext_resource type="AudioStream" uid="uid://balw6nrbk6yu1" path="res://Music/ebm-song/drums.mp3" id="5_bgvc0"]
+[ext_resource type="AudioStream" uid="uid://b4dfcwttl0ju" path="res://Music/tangerine-song/melody.mp3" id="5_etgx7"]
 
 [node name="mystage" instance=ExtResource("1_f1qr3")]
 
 [node name="TrackSwitch" parent="." index="0" instance=ExtResource("2_2cpci")]
 
-[node name="vr" parent="TrackSwitch" index="0" instance=ExtResource("3_f3cqf")]
+[node name="frog" parent="TrackSwitch" index="0" instance=ExtResource("3_nmtp8")]
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="TrackSwitch/vr" index="0"]
+[node name="lead" parent="TrackSwitch/frog" index="0" instance=ExtResource("3_f3cqf")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="TrackSwitch/frog/lead" index="0"]
+stream = ExtResource("5_etgx7")
+
+[node name="attacked" parent="TrackSwitch/frog" index="1" instance=ExtResource("3_f3cqf")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="TrackSwitch/frog/attacked" index="0"]
 stream = ExtResource("4_j26q5")
 
-[node name="frog" parent="TrackSwitch" index="1" instance=ExtResource("3_f3cqf")]
+[node name="vr" parent="TrackSwitch" index="1" instance=ExtResource("3_nmtp8")]
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="TrackSwitch/frog" index="0"]
+[node name="lead" parent="TrackSwitch/vr" index="0" instance=ExtResource("3_f3cqf")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="TrackSwitch/vr/lead" index="0"]
+stream = ExtResource("5_bgvc0")
+
+[node name="attacked" parent="TrackSwitch/vr" index="1" instance=ExtResource("3_f3cqf")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="TrackSwitch/vr/attacked" index="0"]
 stream = ExtResource("5_bgvc0")

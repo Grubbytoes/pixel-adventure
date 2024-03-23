@@ -1,5 +1,8 @@
 extends Character
 
+signal targeting
+signal stopped_targeting
+
 var target: PlayerCharacter
 var home: Vector2
 
@@ -25,10 +28,22 @@ func _on_detection_body_entered(body:Node2D):
 	if body is PlayerCharacter:
 		target = body
 
+		# Signals
+		if body.has_method("on_targeted"):
+			targeting.connect(body.on_targeted)
+			targeting.emit()
+			targeting.disconnect(body.on_targeted)
+
 
 func _on_detection_body_exited(body:Node2D):
 	if body == target:
 		target = null
+
+		# Signals
+		if body.has_method("on_targeted_stopped"):
+			stopped_targeting.connect(body.on_targeted_stopped)
+			stopped_targeting.emit()
+			stopped_targeting.disconnect(body.on_targeted_stopped)
 
 
 func _ready():
