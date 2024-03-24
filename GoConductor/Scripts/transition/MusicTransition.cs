@@ -18,19 +18,19 @@ public abstract partial class MusicTransition : Node
     {
         Parent = parent;
         Duration = duration;
-        Incoming = new HashSet<MusicTrack>();
-        Outgoing = new HashSet<MusicTrack>();
+        Incoming = new HashSet<Transitionoid>();
+        Outgoing = new HashSet<Transitionoid>();
     }
 
     /// <summary>
     /// The set of all track come in in the transition
     /// </summary>
-    protected HashSet<MusicTrack> Incoming { private set; get; }
+    protected HashSet<Transitionoid> Incoming { private set; get; }
 
     /// <summary>
     /// The set of all tracks being stopped by this transition
     /// </summary>
-    protected HashSet<MusicTrack> Outgoing { private set; get; }
+    protected HashSet<Transitionoid> Outgoing { private set; get; }
 
     /// <summary>
     /// The node which called the transition
@@ -107,11 +107,12 @@ public abstract partial class MusicTransition : Node
         // Check if the new node is a single track
         if (musicNode is MusicTrack track)
         {
-            // Guard against duplicate tracks
-            if (Incoming.Contains(track) || Outgoing.Contains(track)) return false;
+            // NOTE there is NO LONGER any guard against adding duplicate tracks
+            // This may be re-introduced if it seems important enough
+            // if (Incoming.Contains(track) || Outgoing.Contains(track)) return false;
             
             // Add the track
-            Incoming.Add(track);
+            Incoming.Add(new Transitionoid(track));
             return true;
         }
         
@@ -135,11 +136,12 @@ public abstract partial class MusicTransition : Node
         // Check if the new node is a single track
         if (musicNode is MusicTrack track)
         {
-            // Guard against duplicate tracks
-            if (Incoming.Contains(track) || Outgoing.Contains(track)) return false;
+            // NOTE there is NO LONGER any guard against adding duplicate tracks
+            // This may be re-introduced if it seems important enough
+            // if (Incoming.Contains(track) || Outgoing.Contains(track)) return false;
             
             // Add the track
-            Outgoing.Add(track);
+            Outgoing.Add(new Transitionoid(track));
             return true;
         }
         
@@ -169,6 +171,8 @@ public abstract partial class MusicTransition : Node
             addedOk = (addedOk && AddIncomingTrack(t));
         }
 
+        Incoming.Add(new Transitionoid(musicTrack));
+
         return addedOk;
     }
 
@@ -186,6 +190,8 @@ public abstract partial class MusicTransition : Node
         {
             addedOk = (addedOk && AddOutgoingTrack(t));
         }
+        
+        Outgoing.Add(new Transitionoid(musicTrack));
 
         return addedOk;
     }

@@ -21,18 +21,26 @@ public partial class Crossfade : MusicTransition
         // Add all outgoing tracks to the tween
         foreach (var t in Outgoing)
         {
-            TransitionTween.Parallel().TweenProperty(t, "Gain", -42, Duration);
+            // If the transitionoid is a terminal track, we can add a property tweener
+            if (t.TerminalTrack is { } tt)
+            {
+                TransitionTween.Parallel().TweenProperty(tt, "Gain", -42, Duration);
+            }
         }
         
         // Add all incoming tracks to the tween
         foreach (var t in Incoming)
         {
-            // * lower track volume
-            // * start the track
-            // * Add volume tweener
-            t.Gain = -42f; // Sometimes the best solution is the simplest...!
+            if (t.TerminalTrack is { } tt)
+            {
+                // * lower track volume
+                // * start the track
+                // * Add volume tweener
+                tt.Gain = -42f; // Sometimes the best solution is the simplest...
+                TransitionTween.Parallel().TweenProperty(tt, "Gain", 0, Duration);
+            }
+            // Regardless, we will want to play the track
             t.Play();
-            TransitionTween.Parallel().TweenProperty(t, "Gain", 0, Duration);
         }
         
         // Let 'er rip!!!
