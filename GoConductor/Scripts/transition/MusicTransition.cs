@@ -146,7 +146,6 @@ public abstract partial class MusicTransition : Node
         // Else see if it is multi-track
         if (musicNode is MultiMusicPlayer multiTrack)
         {
-            GD.Print("BEEP");
             return AddOutgoingTrack(multiTrack);
         }
         

@@ -43,8 +43,7 @@ public partial class MusicSwitch: MultiMusicPlayer
 	}
 
 	public override bool Cue(GcMusicNode newTrack)
-	{        
-		Debu
+	{   
 		// Exit if new track is null
 		if (newTrack == null)
 		{
