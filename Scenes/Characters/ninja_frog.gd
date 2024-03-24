@@ -15,5 +15,13 @@ func can_jump() -> bool:
 	return false
 
 
+func on_targeted():
+	pass
+
+
+func on_targeted_stopped():
+	pass
+
+
 func _process(delta):
 	super._process(delta)
