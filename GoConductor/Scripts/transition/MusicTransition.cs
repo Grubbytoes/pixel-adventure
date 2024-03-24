@@ -102,7 +102,7 @@ public abstract partial class MusicTransition : Node
     /// </summary>
     /// <param name="musicNode">The track to add</param>
     /// <returns>True if track added</returns>
-    public virtual bool AddIncomingTrack(GcMusicNode musicNode)
+    public bool AddIncomingTrack(GcMusicNode musicNode)
     {
         // Check if the new node is a single track
         if (musicNode is MusicTrack track)
@@ -130,7 +130,7 @@ public abstract partial class MusicTransition : Node
     /// </summary>
     /// <param name="musicNode">The track to add</param>
     /// <returns>True if track added</returns>
-    public virtual bool AddOutgoingTrack(GcMusicNode musicNode)
+    public bool AddOutgoingTrack(GcMusicNode musicNode)
     {
         // Check if the new node is a single track
         if (musicNode is MusicTrack track)
@@ -160,7 +160,7 @@ public abstract partial class MusicTransition : Node
     /// </summary>
     /// <param name="musicTrack">The parent of all new tracks to add</param>
     /// <returns>True if all new tracks added okay</returns>
-    public virtual bool AddIncomingTrack(MultiMusicPlayer musicTrack)
+    public bool AddIncomingTrack(MultiMusicPlayer musicTrack)
     {
         bool addedOk = true;
 
@@ -178,7 +178,7 @@ public abstract partial class MusicTransition : Node
     /// </summary>
     /// <param name="musicTrack">The parent of all new tracks to add</param>
     /// <returns>True if all new tracks added okay</returns>
-    public virtual bool AddOutgoingTrack(MultiMusicPlayer musicTrack)
+    public bool AddOutgoingTrack(MultiMusicPlayer musicTrack)
     {
         bool addedOk = true;
 
