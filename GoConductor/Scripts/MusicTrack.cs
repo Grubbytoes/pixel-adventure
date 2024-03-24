@@ -6,7 +6,7 @@ namespace GoConductor;
 public partial class MusicTrack : GcMusicNode
 {
     private float _gain;
-    private string busBuff;
+    private string _busBuff;
     
     private Tween VolumeTween { get; set; }
     private AudioStreamPlayer AudioPlayer { get; set; }
@@ -88,8 +88,7 @@ public partial class MusicTrack : GcMusicNode
         // Start her up!
         AudioPlayer.Play(PlayHead);
     }
-
-    // TODO
+    
     private void TrackEnd()
     {
         // If loop, play it again, sam
@@ -114,7 +113,7 @@ public partial class MusicTrack : GcMusicNode
     public void SetTemporaryBus(int idx)
     {
         // Save current bus
-        busBuff = AudioPlayer.Bus;
+        _busBuff = AudioPlayer.Bus;
         
         // Get the new bus
         string newBusName = AudioServer.GetBusName(idx);
@@ -129,10 +128,10 @@ public partial class MusicTrack : GcMusicNode
     /// <returns>True if successful</returns>
     public bool ResetBus()
     {
-        if (busBuff != null) return false;
+        if (_busBuff != null) return false;
 
-        AudioPlayer.Bus = busBuff;
-        busBuff = null;
+        AudioPlayer.Bus = _busBuff;
+        _busBuff = null;
         return true;
     }
 

@@ -25,3 +25,12 @@ func on_targeted_stopped():
 
 func _process(delta):
 	super._process(delta)
+
+
+func on_targeted():
+	print(GoConductor.get_stage("music").CurrentlyPlaying.name)
+	GoConductor.get_stage("music").CurrentlyPlaying.CueInName("attacked")
+
+
+func on_targeted_stopped():
+	GoConductor.get_stage("music").CurrentlyPlaying.CueOutName("attacked")

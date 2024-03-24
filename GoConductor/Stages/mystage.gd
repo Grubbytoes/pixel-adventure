@@ -1,5 +1,5 @@
 extends BaseStage
 
 
-@onready var frog_theme = $TrackSwicth/vr
-@onready var vr_theme = $TrackSwicth/frog
+@onready var frog_theme = $TrackSwitch/vr
+@onready var vr_theme = $TrackSwitch/frog

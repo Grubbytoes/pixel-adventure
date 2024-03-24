@@ -42,13 +42,8 @@ public partial class MusicSwitch: MultiMusicPlayer
 		CurrentlyPlaying.PlayFrom(position);
 	}
 
-	/// <summary>
-	/// Cues the song of the given name, if it exists as a child
-	/// </summary>
-	/// <param name="newTrack">Name of the track as it exists as a node</param>
-	/// <returns>true if track changed as a result </returns>
 	public override bool Cue(GcMusicNode newTrack)
-	{        
+	{   
 		// Exit if new track is null
 		if (newTrack == null)
 		{

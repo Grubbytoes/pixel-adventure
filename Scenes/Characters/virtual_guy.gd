@@ -10,8 +10,9 @@ func _process(delta):
 
 
 func on_targeted():
-	pass
+	print(GoConductor.get_stage("music").CurrentlyPlaying.name)
+	GoConductor.get_stage("music").CurrentlyPlaying.CueInName("attacked")
 
 
 func on_targeted_stopped():
-	pass
+	GoConductor.get_stage("music").CurrentlyPlaying.CueOutName("attacked")

@@ -5,9 +5,15 @@ namespace GoConductor;
 
 public partial class MusicConductor : MultiMusicPlayer
 {
+    /// <summary>
+    /// A list of all the tracks currently playing
+    /// </summary>
     private List<GcMusicNode> TracksCurrentlyPlaying { get; set; }
     
-    // Basically the first element in TracksCurrentlyPlaying is the lead
+    /// <summary>
+    /// A pointer to the track from which all others will take their timing cues - defined here as the first element
+    /// in the list TracksCurrentlyPlaying
+    /// </summary>
     public GcMusicNode LeadTrack
     {
         get {
@@ -20,6 +26,10 @@ public partial class MusicConductor : MultiMusicPlayer
         private set => TracksCurrentlyPlaying.Insert(0, value);
     }
 
+    /// <summary>
+    /// The position in time the arrangement is currently at. Is read from LeadTrack defined above. When written the
+    /// is set for ALL TracksCurrentlyPlaying.
+    /// </summary>
     public override float PlaybackPosition
     {
         get => LeadTrack.PlaybackPosition;
@@ -59,6 +69,11 @@ public partial class MusicConductor : MultiMusicPlayer
         return success;
     }
 
+    /// <summary>
+    /// Removes the given track from TracksCurrentlyPlaying, stopping any audio in the process
+    /// </summary>
+    /// <param name="track">The track to remove</param>
+    /// <returns>True if track found and cued out</returns>
     private bool CueOut(GcMusicNode track)
     {
         int trackOutIdx = TracksCurrentlyPlaying.IndexOf(track);
@@ -73,6 +88,12 @@ public partial class MusicConductor : MultiMusicPlayer
         return true;
     }
 
+    /// <summary>
+    /// Adds the given to TracksCurrentlyPlaying, playing it in time with the arrangement if the conductor is playing.
+    /// If no other tracks are playing when this track is added, it becomes the LeadTrack.
+    /// </summary>
+    /// <param name="track">The track to play</param>
+    /// <returns>True if cued in successfully</returns>
     private bool CueIn(GcMusicNode track)
     {
         // Track not found or track already playing
@@ -104,7 +125,7 @@ public partial class MusicConductor : MultiMusicPlayer
     }
 
     /// <summary>
-    /// Adds the track to the arrangement, if it is found
+    /// Adds the track to the arrangement, if it is found by name
     /// </summary>
     /// <param name="trackName">Name of track to play</param>
     /// <returns>True if track successfully found and added to arrangement</returns>
@@ -113,11 +134,15 @@ public partial class MusicConductor : MultiMusicPlayer
         GcMusicNode newTrack = GetTrack(trackName);
         return CueIn(newTrack);
     }
-
+    
+    /// <summary>
+    /// Cues the track in, if it can be found, by index
+    /// </summary>
+    /// <param name="idx">Track index</param>
+    /// <returns>True if found and cued in</returns>
     public bool CueInIdx(int idx)
     {
         var track = GetTrack(idx);
-        DebugPrint(track.Name);
         return CueIn(track);
     }
 
@@ -132,6 +157,11 @@ public partial class MusicConductor : MultiMusicPlayer
         return CueOut(track);
     }
 
+    /// <summary>
+    /// Removes the track form the arrangement, if found, by it's index
+    /// </summary>
+    /// <param name="idx">Track index</param>
+    /// <returns>True if found and cued out</returns>
     public bool CueOutIdx(int idx)
     {
         var track = GetTrack(idx);
