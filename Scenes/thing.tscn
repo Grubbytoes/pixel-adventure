@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bpvm4v6wfpegq"]
+[gd_scene load_steps=8 format=3 uid="uid://bpvm4v6wfpegq"]
 
 [ext_resource type="Script" path="res://Scenes/thing.gd" id="1_ebt7o"]
 [ext_resource type="PackedScene" uid="uid://da4dw5jf62gwo" path="res://Scenes/Characters/virtual_guy.tscn" id="1_ff5l7"]
 [ext_resource type="Texture2D" uid="uid://ncfqcgr7riac" path="res://Sprites/Terrain/Terrain (16x16).png" id="2_hpknj"]
 [ext_resource type="PackedScene" uid="uid://bwk42mhrvqrwp" path="res://Scenes/Characters/ninja_frog.tscn" id="3_ei4mt"]
+[ext_resource type="PackedScene" uid="uid://cusrttcwt4kwu" path="res://Scenes/Characters/enemy_bee.tscn" id="5_s14ef"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jof8u"]
 texture = ExtResource("2_hpknj")
@@ -781,6 +782,9 @@ offset = Vector2(0, -30)
 zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 position_smoothing_speed = 8.0
+
+[node name="EnemyBee" parent="." instance=ExtResource("5_s14ef")]
+position = Vector2(642, 39)
 
 [connection signal="swapped_in" from="virtual_guy" to="." method="to_vr_guy"]
 [connection signal="swapped_in" from="ninja_frog" to="." method="to_frog"]

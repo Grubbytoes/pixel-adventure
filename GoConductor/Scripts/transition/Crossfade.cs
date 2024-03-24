@@ -21,8 +21,10 @@ public partial class Crossfade : MusicTransition
         // Add all outgoing tracks to the tween
         foreach (var t in Outgoing)
         {
-            TransitionTween.Parallel().TweenProperty(t, "Gain", -30, Duration);
+            TransitionTween.Parallel().TweenProperty(t, "Gain", -42, Duration);
         }
+
+        GD.Print("HELLOOO!?!?!?!");
         
         // Add all incoming tracks to the tween
         foreach (var t in Incoming)
@@ -30,7 +32,7 @@ public partial class Crossfade : MusicTransition
             // * lower track volume
             // * start the track
             // * Add volume tweener
-            t.Gain = -30f; // Sometimes the best solution is the simplest...!
+            t.Gain = -42f; // Sometimes the best solution is the simplest...!
             t.Play();
             TransitionTween.Parallel().TweenProperty(t, "Gain", 0, Duration);
         }

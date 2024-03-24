@@ -6,7 +6,7 @@ namespace GoConductor;
 
 public partial class MusicSwitch: MultiMusicPlayer
 {
-	private MusicTransition Transition;
+	private MusicTransition _transition;
 	public GcMusicNode CurrentlyPlaying { get; private set; }
 	public bool RestartOnRecue { get; set; }
 
@@ -62,15 +62,15 @@ public partial class MusicSwitch: MultiMusicPlayer
 		if (Playing)
 		{
 			// Abort the transition if there is one in progress, and instance a new one
-			Transition?.Kill();
-			Transition = new FadeOutFadeIn(this, TransitionTime);
+			_transition?.Kill();
+			_transition = new Crossfade(this, TransitionTime);
 			
 			// Add the tracks to be tweened
-			Transition.AddIncomingTrack(newTrack);
-			Transition.AddOutgoingTrack(CurrentlyPlaying);
+			_transition.AddIncomingTrack(newTrack);
+			_transition.AddOutgoingTrack(CurrentlyPlaying);
 			
 			// May god have mercy on our souls
-			Transition.Start();
+			_transition.Start();
 		}
 		
 		// Set the marker to the new track

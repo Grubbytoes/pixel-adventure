@@ -3,5 +3,8 @@
 .idea/
 Sprites/
 Music/
-*.csproj
 global.json
+
+# VScode shit
+.vscode
+Pixel Adventure.code-workspace

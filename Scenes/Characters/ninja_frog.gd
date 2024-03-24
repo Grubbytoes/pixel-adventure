@@ -1,4 +1,4 @@
-extends Character
+extends PlayerCharacter
 
 var double_jump = true
 
