@@ -143,6 +143,7 @@ public partial class MusicTrack : GcMusicNode
     public override void _Ready()
     {
         AudioPlayer = (AudioStreamPlayer)GetChild(0);
+        AudioPlayer.Bus = SettingsReader.MusicBus;
         FinalTrackVolume = AudioPlayer.VolumeDb;
         AudioPlayer.Finished += TrackEnd;
     }
