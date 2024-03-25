@@ -30,7 +30,7 @@ public class SettingsReader
         foreach (var line in raw)
         {
             var split = line.Replace(" ", "").Split(':');   
-            _settingsDict.Add(split[0], split[1]);
+            dict.Add(split[0], split[1]);
         }
 
         return dict;
