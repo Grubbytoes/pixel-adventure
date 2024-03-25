@@ -1,0 +1,11 @@
+{
+    "settings":
+    {
+        "welcomeMessage": "Hello, from GoConductor!",
+        "busses":
+        [
+            {"music": "Master"},
+            {"soundEffects": "Master"}
+        ]
+    }
+}
