@@ -49,7 +49,21 @@ public partial class MusicConductor : MultiMusicPlayer
     public override void _Ready()
     {
         TracksCurrentlyPlaying = new List<GcMusicNode>();
-        StupidBoolArray.Resize(GetChildCount());
+        
+        // Making sure stupid bool array is the right size
+        var childCount = GetChildCount();
+        var arrayCount = StupidBoolArray.Count;
+        while (arrayCount < childCount)
+        {
+            arrayCount += 1;
+            StupidBoolArray.Add(false);
+        }
+        while (arrayCount > childCount)
+        {
+            arrayCount -= 1;
+            StupidBoolArray.RemoveAt(arrayCount);
+        }
+        
         LeadTrack = GetChild(0) as MusicTrack;
     }
 
