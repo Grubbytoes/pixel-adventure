@@ -18,23 +18,15 @@ script = ExtResource("2_3nswm")
 [node name="vr" parent="TrackSwitch" index="0" instance=ExtResource("3_nmtp8")]
 
 [node name="lead" parent="TrackSwitch/vr" index="0" instance=ExtResource("3_f3cqf")]
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="TrackSwitch/vr/lead" index="0"]
-stream = ExtResource("5_etgx7")
+Track = ExtResource("5_etgx7")
 
 [node name="attacked" parent="TrackSwitch/vr" index="1" instance=ExtResource("3_f3cqf")]
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="TrackSwitch/vr/attacked" index="0"]
-stream = ExtResource("4_j26q5")
+Track = ExtResource("4_j26q5")
 
 [node name="frog" parent="TrackSwitch" index="1" instance=ExtResource("3_nmtp8")]
 
 [node name="lead" parent="TrackSwitch/frog" index="0" instance=ExtResource("3_f3cqf")]
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="TrackSwitch/frog/lead" index="0"]
-stream = ExtResource("5_bgvc0")
+Track = ExtResource("5_bgvc0")
 
 [node name="attacked" parent="TrackSwitch/frog" index="1" instance=ExtResource("3_f3cqf")]
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="TrackSwitch/frog/attacked" index="0"]
-stream = ExtResource("8_y5lj7")
+Track = ExtResource("8_y5lj7")

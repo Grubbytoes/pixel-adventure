@@ -44,7 +44,6 @@ public partial class MusicConductor : MultiMusicPlayer
 
     public override void _Ready()
     {
-        base._Ready();
         TracksCurrentlyPlaying = new List<GcMusicNode>();
         LeadTrack = GetChild(0) as MusicTrack;
     }
