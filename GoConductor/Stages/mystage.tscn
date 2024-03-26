@@ -16,7 +16,6 @@ script = ExtResource("2_3nswm")
 [node name="TrackSwitch" parent="." index="0" instance=ExtResource("2_2cpci")]
 
 [node name="vr" parent="TrackSwitch" index="0" instance=ExtResource("3_nmtp8")]
-TracksActive = Array[bool]([])
 
 [node name="lead" parent="TrackSwitch/vr" index="0" instance=ExtResource("3_f3cqf")]
 Track = ExtResource("5_etgx7")

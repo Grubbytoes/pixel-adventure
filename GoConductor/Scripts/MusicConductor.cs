@@ -44,12 +44,12 @@ public partial class MusicConductor : MultiMusicPlayer
         }
     }
 
-    [Export] public Array<bool> TracksActive = new Array<bool>();
+    [Export] public Array<bool> StupidBoolArray = new Array<bool>();
 
     public override void _Ready()
     {
         TracksCurrentlyPlaying = new List<GcMusicNode>();
-        TracksActive.Resize(GetChildCount());
+        StupidBoolArray.Resize(GetChildCount());
         LeadTrack = GetChild(0) as MusicTrack;
     }
 
@@ -81,6 +81,9 @@ public partial class MusicConductor : MultiMusicPlayer
     private bool CueOut(GcMusicNode track)
     {
         int trackOutIdx = TracksCurrentlyPlaying.IndexOf(track);
+        
+        // Update bool array
+        StupidBoolArray[track.GetIndex()] = false;
 
         if (trackOutIdx < 0)
         {
@@ -105,6 +108,10 @@ public partial class MusicConductor : MultiMusicPlayer
         {
             return false;
         }
+        
+        // Update bool array
+        StupidBoolArray[track.GetIndex()] = true;
+        
         
         // Append track to currently playing, so we can see it later
         TracksCurrentlyPlaying.Add(track);
