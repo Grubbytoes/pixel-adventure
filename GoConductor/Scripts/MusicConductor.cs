@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
 using Godot;
+using Godot.Collections;
 
 namespace GoConductor;
 
+[Tool]
 public partial class MusicConductor : MultiMusicPlayer
 {
     /// <summary>
@@ -42,9 +44,12 @@ public partial class MusicConductor : MultiMusicPlayer
         }
     }
 
+    [Export] public Array<bool> TracksActive = new Array<bool>();
+
     public override void _Ready()
     {
         TracksCurrentlyPlaying = new List<GcMusicNode>();
+        TracksActive.Resize(GetChildCount());
         LeadTrack = GetChild(0) as MusicTrack;
     }
 
