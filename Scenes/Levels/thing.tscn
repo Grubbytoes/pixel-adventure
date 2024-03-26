@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bpvm4v6wfpegq"]
 
-[ext_resource type="Script" path="res://Scenes/thing.gd" id="1_ebt7o"]
+[ext_resource type="Script" path="res://Scenes/Levels/thing.gd" id="1_ebt7o"]
 [ext_resource type="PackedScene" uid="uid://da4dw5jf62gwo" path="res://Scenes/Characters/virtual_guy.tscn" id="1_ff5l7"]
 [ext_resource type="Texture2D" uid="uid://ncfqcgr7riac" path="res://Sprites/Terrain/Terrain (16x16).png" id="2_hpknj"]
 [ext_resource type="PackedScene" uid="uid://bwk42mhrvqrwp" path="res://Scenes/Characters/ninja_frog.tscn" id="3_ei4mt"]
