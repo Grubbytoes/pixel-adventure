@@ -3,7 +3,17 @@
 [ext_resource type="Script" path="res://Scenes/UI/hud.gd" id="1_qcr3l"]
 
 [node name="Hud" type="CanvasLayer"]
+process_mode = 3
 script = ExtResource("1_qcr3l")
+
+[node name="filter" type="ColorRect" parent="."]
+visible = false
+modulate = Color(0, 0, 0, 0.490196)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 5
@@ -62,22 +72,18 @@ size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 75
 text = "YOU PAUSED"
 
-[node name="Label2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 30
-text = "(even though it doesn't do anything)"
-
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_top = 10
 
-[node name="Button" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer"]
+[node name="quit" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 30
 text = "QUIT"
 
+[connection signal="toggled" from="MarginContainer/HBoxContainer/pause" to="." method="pause_pressed"]
 [connection signal="toggled" from="MarginContainer/HBoxContainer/pause" to="PanelContainer" method="set_visible"]
 [connection signal="toggled" from="MarginContainer/HBoxContainer/mute" to="." method="mute_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/quit" to="." method="quit_pressed"]

@@ -104,7 +104,7 @@ func recieve_control(from: PlayerCharacter):
 	from.pass_control_buffer.timeout.disconnect(recieve_control)
 
 
-func _process(delta):
+func _physics_process(delta):
 	if currently_controlled:
 		velocity = move_by_input(velocity)
 		if Input.is_action_just_pressed("ui_accept"): pass_control(buddy)

@@ -765,6 +765,8 @@ sources/1 = SubResource("TileSetAtlasSource_jof8u")
 [node name="Thing" type="Node2D"]
 script = ExtResource("1_ebt7o")
 
+[node name="Hud" parent="." instance=ExtResource("6_3heu7")]
+
 [node name="virtual_guy" parent="." node_paths=PackedStringArray("buddy") instance=ExtResource("1_ff5l7")]
 position = Vector2(-220, 4)
 buddy = NodePath("../ninja_frog")
@@ -786,8 +788,6 @@ position_smoothing_speed = 8.0
 
 [node name="EnemyBee" parent="." instance=ExtResource("5_s14ef")]
 position = Vector2(642, 39)
-
-[node name="Hud" parent="." instance=ExtResource("6_3heu7")]
 
 [connection signal="swapped_in" from="virtual_guy" to="." method="to_vr_guy"]
 [connection signal="swapped_in" from="ninja_frog" to="." method="to_frog"]

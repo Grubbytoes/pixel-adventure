@@ -15,8 +15,8 @@ func can_jump() -> bool:
 	return false
 
 
-func _process(delta):
-	super._process(delta)
+func _physics_process(delta):
+	super._physics_process(delta)
 
 
 func on_targeted():
