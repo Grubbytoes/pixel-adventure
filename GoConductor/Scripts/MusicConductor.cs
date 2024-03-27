@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
 using Godot;
+using Godot.Collections;
 
 namespace GoConductor;
 
+[Tool]
 public partial class MusicConductor : MultiMusicPlayer
 {
     /// <summary>
@@ -42,10 +44,26 @@ public partial class MusicConductor : MultiMusicPlayer
         }
     }
 
+    [Export] public Array<bool> StupidBoolArray = new Array<bool>();
+
     public override void _Ready()
     {
-        base._Ready();
         TracksCurrentlyPlaying = new List<GcMusicNode>();
+        
+        // Making sure stupid bool array is the right size
+        var childCount = GetChildCount();
+        var arrayCount = StupidBoolArray.Count;
+        while (arrayCount < childCount)
+        {
+            arrayCount += 1;
+            StupidBoolArray.Add(false);
+        }
+        while (arrayCount > childCount)
+        {
+            arrayCount -= 1;
+            StupidBoolArray.RemoveAt(arrayCount);
+        }
+        
         LeadTrack = GetChild(0) as MusicTrack;
     }
 
@@ -77,6 +95,9 @@ public partial class MusicConductor : MultiMusicPlayer
     private bool CueOut(GcMusicNode track)
     {
         int trackOutIdx = TracksCurrentlyPlaying.IndexOf(track);
+        
+        // Update bool array
+        StupidBoolArray[track.GetIndex()] = false;
 
         if (trackOutIdx < 0)
         {
@@ -101,6 +122,10 @@ public partial class MusicConductor : MultiMusicPlayer
         {
             return false;
         }
+        
+        // Update bool array
+        StupidBoolArray[track.GetIndex()] = true;
+        
         
         // Append track to currently playing, so we can see it later
         TracksCurrentlyPlaying.Add(track);

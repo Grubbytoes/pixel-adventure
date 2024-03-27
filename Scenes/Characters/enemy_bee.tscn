@@ -1,6 +1,6 @@
 [gd_scene load_steps=21 format=3 uid="uid://cusrttcwt4kwu"]
 
-[ext_resource type="Script" path="res://Scenes/Enemy.gd" id="1_4jc2i"]
+[ext_resource type="Script" path="res://Scenes/Characters/Enemy.gd" id="1_4jc2i"]
 [ext_resource type="Texture2D" uid="uid://dubf3586v7kcu" path="res://Sprites/Enemies/Bee/Idle (36x34).png" id="2_5bc57"]
 [ext_resource type="Texture2D" uid="uid://bx1mcsytuss3n" path="res://Sprites/Enemies/Bee/Attack (36x34).png" id="2_n0t21"]
 

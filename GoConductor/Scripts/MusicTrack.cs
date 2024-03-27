@@ -7,14 +7,17 @@ public partial class MusicTrack : GcMusicNode
 {
     private float _gain;
     private string _busBuff;
-    
+
     private Tween VolumeTween { get; set; }
     private AudioStreamPlayer AudioPlayer { get; set; }
     private float FinalTrackVolume { get; set; }
+    
     [Export] public float Attack = 0.2f;
     [Export] public bool Loop = true;
+    [Export] public bool AutoPlay = false;
+    [Export] public AudioStream Track;
 
-    public override float PlaybackPosition
+public override float PlaybackPosition
     {
         get => AudioPlayer.GetPlaybackPosition();
         set => AudioPlayer.Seek(value);
@@ -142,8 +145,18 @@ public partial class MusicTrack : GcMusicNode
 
     public override void _Ready()
     {
-        AudioPlayer = (AudioStreamPlayer)GetChild(0);
+        // Instance and add the audio player
+        AudioPlayer = new AudioStreamPlayer();
+        AudioPlayer.Stream = Track;
+        AudioPlayer.Bus = SettingsReader.MusicBus;
+        AddChild(AudioPlayer);
+        
+        // Read the final volume from the AudioPlayer TODO I think we'll have to change this later
         FinalTrackVolume = AudioPlayer.VolumeDb;
+        // Attaching signals
         AudioPlayer.Finished += TrackEnd;
+        
+        // Finally, are we on autoplay?
+        if (AutoPlay) {AudioPlayer.Play();}
     }
 }
