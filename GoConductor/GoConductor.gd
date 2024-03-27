@@ -55,12 +55,11 @@ func swap_stage(new_stage_name: String, stage_name: String) -> bool:
 
 
 func mute_music(mute=true):
-	var idx = AudioServer.get_bus_index(_settings["musicBus"])
-	AudioServer.set_bus_mute(idx, mute)
+	AudioServer.set_bus_mute(get_music_bus_idx(), mute)
 
 
-func mute_sfx():
-	pass
+func mute_sfx(mute=true):
+	AudioServer.set_bus_mute(get_sfx_bus_idx(), mute)
 
 
 func load_settings():
@@ -83,4 +82,16 @@ func _to_path(somestr: String) -> String:
 func _instance_stage(path: String) -> Node:
 	var s = load(path)
 	return s.instantiate()
-	
+
+
+func get_music_bus_idx() -> int:
+	var idx = AudioServer.get_bus_index(_settings["musicBus"])
+	print(idx)
+	return idx
+
+
+func get_sfx_bus_idx() -> int:
+	return AudioServer.get_bus_index(_settings["soundEffectsBus"])
+
+
+

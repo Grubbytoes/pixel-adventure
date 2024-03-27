@@ -20,6 +20,15 @@ func pause_pressed(paused: bool):
 	filter.visible = paused
 	on_pause.emit(paused)
 
+	# The audio effect
+	if paused:
+		var effect = AudioEffectLowPassFilter.new()
+		effect.cutoff_hz = 1200
+		effect.resonance = 0.7
+		AudioServer.add_bus_effect(GoConductor.get_music_bus_idx(), effect, 0)
+	else:
+		AudioServer.remove_bus_effect(GoConductor.get_music_bus_idx(), 0)
+
 
 func quit_pressed():
 	on_mute.emit()
