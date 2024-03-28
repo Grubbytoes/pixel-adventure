@@ -8,12 +8,14 @@
 script = ExtResource("1_6sabq")
 
 [node name="title_screen" parent="." instance=ExtResource("1_atlj4")]
+layer = 2
 
 [node name="hud" parent="." instance=ExtResource("3_77k3m")]
 visible = false
 
 [node name="level_layer" type="CanvasLayer" parent="."]
-visible = false
+layer = 0
+follow_viewport_enabled = true
 
 [connection signal="play_pressed" from="title_screen" to="." method="title_screen_play_pressed"]
 [connection signal="on_quit" from="hud" to="." method="return_to_title"]

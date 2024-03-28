@@ -9,24 +9,27 @@ var current_level: PackedScene
 
 
 func title_screen_play_pressed():
+	print("ping")
 	# Swap the UI
 	title_screen.visible = false
 	hud.visible = true
 
 	# Instance the level
-	if current_level != null: level_layer.add_child(current_level.instantiate())
+	current_level = load("res://Scenes/Levels/thing.tscn")
+	level_layer.add_child(current_level.instantiate())
+	level_layer.visible = true
 
 
 func return_to_title():
-	print("pong")
-
 	# Swap the UI
 	title_screen.visible = true
 	hud.visible = false
 
 	# Clear the level layer
+	level_layer.visible = false
 	for l in level_layer.get_children(): l.queue_free()
 
 
 func _ready():
-	current_level = load("res://Scenes/Levels/thing.tscn")
+	title_screen.visible = true
+	hud.visible = false

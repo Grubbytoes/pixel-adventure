@@ -57,8 +57,9 @@ theme_override_constants/separation = 20
 [node name="play" type="Button" parent="Container/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
+focus_mode = 0
 theme_override_font_sizes/font_size = 30
 text = "PLAY"
 icon_alignment = 1
 
-[connection signal="pressed" from="Container/MarginContainer/VBoxContainer/play" to="." method="emmit_play_pressed"]
+[connection signal="button_down" from="Container/MarginContainer/VBoxContainer/play" to="." method="emmit_play_pressed"]

@@ -2,7 +2,7 @@ extends CanvasLayer
 
 signal on_pause(paused: bool) 
 signal on_mute(mute: bool)
-signal on_quit()
+signal on_quit
 
 @onready var filter: Control = $filter
 
