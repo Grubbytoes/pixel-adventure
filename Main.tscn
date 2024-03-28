@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://clpmqsv8tc3y5"]
+
+[ext_resource type="Script" path="res://Main.gd" id="1_6sabq"]
+[ext_resource type="PackedScene" uid="uid://cpdetlxxa8wcg" path="res://Scenes/UI/title.tscn" id="1_atlj4"]
+[ext_resource type="PackedScene" uid="uid://clkix73wcthvu" path="res://Scenes/UI/hud.tscn" id="3_77k3m"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_6sabq")
+
+[node name="title_screen" parent="." instance=ExtResource("1_atlj4")]
+
+[node name="hud" parent="." instance=ExtResource("3_77k3m")]
+visible = false
+
+[node name="level_layer" type="CanvasLayer" parent="."]
+visible = false
+
+[connection signal="play_pressed" from="title_screen" to="." method="title_screen_play_pressed"]
+[connection signal="on_quit" from="hud" to="." method="return_to_title"]

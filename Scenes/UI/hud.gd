@@ -2,7 +2,7 @@ extends CanvasLayer
 
 signal on_pause(paused: bool) 
 signal on_mute(mute: bool)
-signal on_quit
+signal on_quit()
 
 @onready var filter: Control = $filter
 
@@ -31,4 +31,5 @@ func pause_pressed(paused: bool):
 
 
 func quit_pressed():
-	on_mute.emit()
+	on_quit.emit()
+	print("ping")

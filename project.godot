@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Pixel Adventure"
-run/main_scene="res://Scenes/Levels/thing.tscn"
+run/main_scene="res://Main.tscn"
 config/features=PackedStringArray("4.2", "C#", "Forward Plus")
 config/icon="res://Sprites/Main Characters/Virtual Guy/Fall (32x32).png"
 
