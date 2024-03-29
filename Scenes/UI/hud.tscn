@@ -83,17 +83,23 @@ size_flags_vertical = 0
 theme_override_font_sizes/font_size = 30
 text = "QUIT"
 
-[node name="Button" type="Button" parent="."]
+[node name="MarginContainer2" type="MarginContainer" parent="."]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -70.0
-offset_top = -31.0
-offset_right = 68.0
+offset_left = -69.0
+offset_top = -40.0
+offset_right = 69.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_constants/margin_bottom = 10
+
+[node name="stop" type="Button" parent="MarginContainer2"]
+layout_mode = 2
+tooltip_text = "ONLY DO THIS IF YOU'RE SUPER DUPER SURE"
+theme_override_colors/font_hover_color = Color(0.95, 0.52725, 0.1045, 1)
 text = "STOP THE MUSIC"
 
 [connection signal="toggled" from="MarginContainer/HBoxContainer/pause" to="." method="pause_pressed"]
@@ -101,4 +107,4 @@ text = "STOP THE MUSIC"
 [connection signal="toggled" from="MarginContainer/HBoxContainer/mute" to="." method="mute_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/quit" to="." method="quit_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/quit" to="PanelContainer" method="set_visible" binds= [false]]
-[connection signal="pressed" from="Button" to="." method="stop_the_music"]
+[connection signal="pressed" from="MarginContainer2/stop" to="." method="stop_the_music"]
