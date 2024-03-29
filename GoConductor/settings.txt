@@ -1,3 +1,0 @@
-musicBus: Music
-soundEffectsBus: Sfx
-welcomeMessage: Hello!!
