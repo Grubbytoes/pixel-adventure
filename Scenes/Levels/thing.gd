@@ -23,3 +23,4 @@ func _ready():
 
 func _process(_delta):
 	camera.position = player_character.position
+	
