@@ -32,4 +32,4 @@ func pause_pressed(paused: bool):
 
 func quit_pressed():
 	on_quit.emit()
-	print("ping")
+	get_tree().paused = false
