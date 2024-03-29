@@ -20,7 +20,6 @@ func _physics_process(delta):
 
 
 func on_targeted():
-	print(GoConductor.get_stage("music").CurrentlyPlaying.name)
 	GoConductor.get_stage("music").CurrentlyPlaying.CueInName("attacked")
 
 

@@ -93,7 +93,6 @@ public abstract partial class MusicTransition : Node
         }
         
         // Send the signal, baby!
-        GD.Print("DONE");
         EmitSignal(MusicTransition.SignalName.Done);
     }
 

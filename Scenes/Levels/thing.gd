@@ -17,7 +17,6 @@ func to_vr_guy():
 
 func _ready():
 	$virtual_guy.currently_controlled = true
-	GoConductor.load_stage("mystage", "music")
 	to_vr_guy()
 	GoConductor.get_stage("music").Play()
 

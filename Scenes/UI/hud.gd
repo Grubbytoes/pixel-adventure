@@ -33,3 +33,4 @@ func pause_pressed(paused: bool):
 func quit_pressed():
 	on_quit.emit()
 	get_tree().paused = false
+	filter.visible = false

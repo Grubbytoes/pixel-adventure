@@ -9,7 +9,6 @@ var current_level: PackedScene
 
 
 func title_screen_play_pressed():
-	print("ping")
 	# Swap the UI
 	title_screen.visible = false
 	hud.visible = true
@@ -33,3 +32,5 @@ func return_to_title():
 func _ready():
 	title_screen.visible = true
 	hud.visible = false
+	
+	GoConductor.load_stage("mystage", "music")

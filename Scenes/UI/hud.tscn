@@ -87,3 +87,4 @@ text = "QUIT"
 [connection signal="toggled" from="MarginContainer/HBoxContainer/pause" to="PanelContainer" method="set_visible"]
 [connection signal="toggled" from="MarginContainer/HBoxContainer/mute" to="." method="mute_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/quit" to="." method="quit_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/quit" to="PanelContainer" method="set_visible" binds= [false]]
