@@ -34,7 +34,16 @@ public partial class MusicConductor : MultiMusicPlayer
     /// </summary>
     public override float PlaybackPosition
     {
-        get => LeadTrack.PlaybackPosition;
+        get
+        {
+            if (LeadTrack?.PlaybackPosition is { } p)
+            {
+                return p;
+            }
+            else
+            {
+                return 0f;};
+        } 
         set
         {
             foreach (GcMusicNode t in TracksCurrentlyPlaying)
