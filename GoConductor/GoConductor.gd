@@ -8,6 +8,11 @@ func say_hello():
 
 
 func get_stage(stage_name) -> Node:
+	# Check that the stage even exisits
+	if !_stages.has(stage_name):
+		printerr("GoConductor: The stage '"+stage_name+"' does not exists has has not been staged")
+		return null
+
 	return _stages.get(stage_name).pointer
 
 
