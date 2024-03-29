@@ -35,3 +35,7 @@ func quit_pressed():
 	get_tree().paused = false
 	AudioServer.remove_bus_effect(GoConductor.get_music_bus_idx(), 0)
 	filter.visible = false
+
+
+func stop_the_music():
+	GoConductor.unstage("music")
