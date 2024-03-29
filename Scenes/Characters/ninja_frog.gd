@@ -13,15 +13,3 @@ func can_jump() -> bool:
 		double_jump = false
 		return true
 	return false
-
-
-func _physics_process(delta):
-	super._physics_process(delta)
-
-
-func on_targeted():
-	GoConductor.get_stage("music").CurrentlyPlaying.CueInName("attacked")
-
-
-func on_targeted_stopped():
-	GoConductor.get_stage("music").CurrentlyPlaying.CueOutName("attacked")

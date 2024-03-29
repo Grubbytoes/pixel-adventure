@@ -12,6 +12,8 @@ layer = 2
 
 [node name="hud" parent="." instance=ExtResource("3_77k3m")]
 visible = false
+handle_mute = null
+handle_pause = null
 
 [node name="level_layer" type="CanvasLayer" parent="."]
 layer = 0

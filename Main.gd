@@ -5,7 +5,6 @@ extends Node2D
 @onready var hud = $hud
 @onready var level_layer = $level_layer
 
-var music_stage
 var current_level: PackedScene
 
 
@@ -29,14 +28,8 @@ func return_to_title():
 	level_layer.visible = false
 	for l in level_layer.get_children(): l.queue_free()
 
-	# MUSICA!!
-	music_stage.CueName("northstar")
-
 
 func _ready():
 	title_screen.visible = true
 	hud.visible = false
-	GoConductor.load_stage("mystage", "music")
-	music_stage = GoConductor.get_stage("music")
-	music_stage.CueName("northstar")
-	music_stage.Play()
+

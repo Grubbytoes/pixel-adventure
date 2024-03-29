@@ -5,6 +5,8 @@
 [node name="Hud" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_qcr3l")
+handle_mute = null
+handle_pause = null
 
 [node name="filter" type="ColorRect" parent="."]
 visible = false
