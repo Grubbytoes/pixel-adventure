@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cl4yxjqgh1l03"]
+[gd_scene load_steps=11 format=3 uid="uid://cl4yxjqgh1l03"]
 
 [ext_resource type="PackedScene" uid="uid://dx0lq2cyfxig1" path="res://GoConductor/Stages/BaseStage.tscn" id="1_f1qr3"]
 [ext_resource type="PackedScene" uid="uid://ceoncjdq5abt2" path="res://GoConductor/Nodes/TrackSwitch.tscn" id="2_2cpci"]
@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://balw6nrbk6yu1" path="res://Music/ebm-song/drums.mp3" id="5_bgvc0"]
 [ext_resource type="AudioStream" uid="uid://b4dfcwttl0ju" path="res://Music/tangerine-song/melody.mp3" id="5_etgx7"]
 [ext_resource type="AudioStream" uid="uid://c66k7eirobaes" path="res://Music/ebm-song/bass.mp3" id="8_y5lj7"]
+[ext_resource type="AudioStream" uid="uid://dfstbh5qrs2w8" path="res://Music/Northstar.mp3" id="10_iovff"]
 
 [node name="mystage" instance=ExtResource("1_f1qr3")]
 script = ExtResource("2_3nswm")
@@ -32,3 +33,6 @@ Track = ExtResource("5_bgvc0")
 
 [node name="attacked" parent="TrackSwitch/frog" index="1" instance=ExtResource("3_f3cqf")]
 Track = ExtResource("8_y5lj7")
+
+[node name="northstar" parent="TrackSwitch" index="2" instance=ExtResource("3_f3cqf")]
+Track = ExtResource("10_iovff")

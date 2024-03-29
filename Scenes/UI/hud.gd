@@ -33,4 +33,5 @@ func pause_pressed(paused: bool):
 func quit_pressed():
 	on_quit.emit()
 	get_tree().paused = false
+	AudioServer.remove_bus_effect(GoConductor.get_music_bus_idx(), 0)
 	filter.visible = false
