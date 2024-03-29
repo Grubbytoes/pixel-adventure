@@ -6,9 +6,6 @@ public abstract partial class GcNode : Node, ITrackController
 {
     private float _playbackPosition;
 
-    // TODO
-    public static string MusicBus {get => "TODO";}
-
     /// <summary>
     ///     Where in time the arrangement is at currently
     /// </summary>
