@@ -2,7 +2,7 @@ using Godot;
 
 namespace GoConductor;
 
-public abstract partial class GcMusicNode : Node, IMusicController
+public abstract partial class GcNode : Node, ITrackController
 {
     private float _playbackPosition;
 

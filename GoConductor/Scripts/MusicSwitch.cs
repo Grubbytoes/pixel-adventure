@@ -4,10 +4,10 @@ using Godot;
 
 namespace GoConductor;
 
-public partial class MusicSwitch: MultiMusicPlayer
+public partial class MusicSwitch: MultiTrackPlayer
 {
 	private MusicTransition _transition;
-	public GcMusicNode CurrentlyPlaying { get; private set; }
+	public GcNode CurrentlyPlaying { get; private set; }
 	public bool RestartOnRecue { get; set; }
 
 	[Export] public float TransitionTime = 1f;
@@ -42,7 +42,7 @@ public partial class MusicSwitch: MultiMusicPlayer
 		CurrentlyPlaying.PlayFrom(position);
 	}
 
-	public override bool Cue(GcMusicNode newTrack)
+	public override bool Cue(GcNode newTrack)
 	{   
 		// Exit if new track is null
 		if (newTrack == null)
@@ -83,7 +83,7 @@ public partial class MusicSwitch: MultiMusicPlayer
 	/// Returns which ever track is set to currently playing, all others should be hidden
 	/// </summary>
 	/// <returns></returns>
-	public override IEnumerable<GcMusicNode> GetVisibleTracks()
+	public override IEnumerable<GcNode> GetVisibleTracks()
 	{
 		return new[] { CurrentlyPlaying };
 	}

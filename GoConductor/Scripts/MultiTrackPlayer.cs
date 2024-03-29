@@ -4,18 +4,18 @@ using Godot;
 
 namespace GoConductor;
 
-public abstract partial class MultiMusicPlayer : GcMusicNode
+public abstract partial class MultiTrackPlayer : GcNode
 {
     /// <summary>
     /// Finds the track of the given name
     /// </summary>
     /// <param name="trackName">The name of the track</param>
     /// <returns>The track, or null if it cannot be found</returns>
-    protected GcMusicNode GetTrack(string trackName)
+    protected GcNode GetTrack(string trackName)
     {
         var found = GetNode(trackName);
 
-        if (found is GcMusicNode track)
+        if (found is GcNode track)
         {
             return track;
         }
@@ -29,9 +29,9 @@ public abstract partial class MultiMusicPlayer : GcMusicNode
     /// </summary>
     /// <param name="idx"></param>
     /// <returns>The track, or null if the index is out of bounds, or points to a non track node</returns>
-    protected GcMusicNode GetTrack(int idx)
+    protected GcNode GetTrack(int idx)
     {
-        if (idx < GetChildCount() && GetChild(idx) is GcMusicNode track)
+        if (idx < GetChildCount() && GetChild(idx) is GcNode track)
         {
             return track;
         }
@@ -61,6 +61,6 @@ public abstract partial class MultiMusicPlayer : GcMusicNode
         return track != null && Cue(track);
     }
 
-    public abstract bool Cue(GcMusicNode trackName);
-    public abstract IEnumerable<GcMusicNode> GetVisibleTracks();
+    public abstract bool Cue(GcNode trackName);
+    public abstract IEnumerable<GcNode> GetVisibleTracks();
 }

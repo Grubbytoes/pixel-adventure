@@ -5,7 +5,7 @@
 /// </summary>
 public partial class HardCut : MusicTransition
 {
-    public HardCut(GcMusicNode parent, float duration) : base(parent, duration)
+    public HardCut(GcNode parent, float duration) : base(parent, duration)
     {
     }
 

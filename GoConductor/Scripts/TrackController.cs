@@ -1,6 +1,6 @@
 ﻿namespace GoConductor;
 
-public interface IMusicController
+public interface ITrackController
 {
     public void Play();
 

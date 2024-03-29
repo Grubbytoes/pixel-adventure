@@ -14,7 +14,7 @@ public abstract partial class MusicTransition : Node
     [Signal]
     public delegate void DoneEventHandler();
 
-    public MusicTransition(GcMusicNode parent, float duration)
+    public MusicTransition(GcNode parent, float duration)
     {
         Parent = parent;
         Duration = duration;
@@ -35,7 +35,7 @@ public abstract partial class MusicTransition : Node
     /// <summary>
     /// The node which called the transition
     /// </summary>
-    public GcMusicNode Parent { get; private set; }
+    public GcNode Parent { get; private set; }
 
     /// <summary>
     /// How long the transition should last for
@@ -101,7 +101,7 @@ public abstract partial class MusicTransition : Node
     /// </summary>
     /// <param name="musicNode">The track to add</param>
     /// <returns>True if track added</returns>
-    public bool AddIncomingTrack(GcMusicNode musicNode)
+    public bool AddIncomingTrack(GcNode musicNode)
     {
         // Check if the new node is a single track
         if (musicNode is MusicTrack track)
@@ -116,7 +116,7 @@ public abstract partial class MusicTransition : Node
         }
         
         // Else see if it is multi-track
-        if (musicNode is MultiMusicPlayer multiTrack)
+        if (musicNode is MultiTrackPlayer multiTrack)
         {
             return AddIncomingTrack(multiTrack);
         }
@@ -130,7 +130,7 @@ public abstract partial class MusicTransition : Node
     /// </summary>
     /// <param name="musicNode">The track to add</param>
     /// <returns>True if track added</returns>
-    public bool AddOutgoingTrack(GcMusicNode musicNode)
+    public bool AddOutgoingTrack(GcNode musicNode)
     {
         // Check if the new node is a single track
         if (musicNode is MusicTrack track)
@@ -145,7 +145,7 @@ public abstract partial class MusicTransition : Node
         }
         
         // Else see if it is multi-track
-        if (musicNode is MultiMusicPlayer multiTrack)
+        if (musicNode is MultiTrackPlayer multiTrack)
         {
             return AddOutgoingTrack(multiTrack);
         }
@@ -161,11 +161,11 @@ public abstract partial class MusicTransition : Node
     /// </summary>
     /// <param name="musicTrack">The parent of all new tracks to add</param>
     /// <returns>True if all new tracks added okay</returns>
-    public bool AddIncomingTrack(MultiMusicPlayer musicTrack)
+    public bool AddIncomingTrack(MultiTrackPlayer musicTrack)
     {
         bool addedOk = true;
 
-        foreach (GcMusicNode t in musicTrack.GetVisibleTracks())
+        foreach (GcNode t in musicTrack.GetVisibleTracks())
         {
             addedOk = (addedOk && AddIncomingTrack(t));
         }
@@ -181,11 +181,11 @@ public abstract partial class MusicTransition : Node
     /// </summary>
     /// <param name="musicTrack">The parent of all new tracks to add</param>
     /// <returns>True if all new tracks added okay</returns>
-    public bool AddOutgoingTrack(MultiMusicPlayer musicTrack)
+    public bool AddOutgoingTrack(MultiTrackPlayer musicTrack)
     {
         bool addedOk = true;
 
-        foreach (GcMusicNode t in musicTrack.GetVisibleTracks())
+        foreach (GcNode t in musicTrack.GetVisibleTracks())
         {
             addedOk = (addedOk && AddOutgoingTrack(t));
         }

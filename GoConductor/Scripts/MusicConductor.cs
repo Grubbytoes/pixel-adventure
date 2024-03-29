@@ -5,18 +5,18 @@ using Godot.Collections;
 namespace GoConductor;
 
 [Tool]
-public partial class MusicConductor : MultiMusicPlayer
+public partial class MusicConductor : MultiTrackPlayer
 {
     /// <summary>
     /// A list of all the tracks currently playing
     /// </summary>
-    private List<GcMusicNode> TracksCurrentlyPlaying { get; set; }
+    private List<GcNode> TracksCurrentlyPlaying { get; set; }
     
     /// <summary>
     /// A pointer to the track from which all others will take their timing cues - defined here as the first element
     /// in the list TracksCurrentlyPlaying
     /// </summary>
-    public GcMusicNode LeadTrack
+    public GcNode LeadTrack
     {
         get {
             if (TracksCurrentlyPlaying.Count < 1)
@@ -46,7 +46,7 @@ public partial class MusicConductor : MultiMusicPlayer
         } 
         set
         {
-            foreach (GcMusicNode t in TracksCurrentlyPlaying)
+            foreach (GcNode t in TracksCurrentlyPlaying)
             {
                 t.PlaybackPosition = value;
             }
@@ -57,7 +57,7 @@ public partial class MusicConductor : MultiMusicPlayer
 
     public override void _Ready()
     {
-        TracksCurrentlyPlaying = new List<GcMusicNode>();
+        TracksCurrentlyPlaying = new List<GcNode>();
         
         // Making sure stupid bool array is the right size
         var childCount = GetChildCount();
@@ -81,7 +81,7 @@ public partial class MusicConductor : MultiMusicPlayer
     /// </summary>
     /// <param name="newTrack">Name of the track</param>
     /// <returns>True if track successfully found and acted upon</returns>
-    public override bool Cue(GcMusicNode newTrack)
+    public override bool Cue(GcNode newTrack)
     {
         // Try cueing the track
         bool success = CueIn(newTrack);
@@ -101,7 +101,7 @@ public partial class MusicConductor : MultiMusicPlayer
     /// </summary>
     /// <param name="track">The track to remove</param>
     /// <returns>True if track found and cued out</returns>
-    private bool CueOut(GcMusicNode track)
+    private bool CueOut(GcNode track)
     {
         int trackOutIdx = TracksCurrentlyPlaying.IndexOf(track);
         
@@ -124,7 +124,7 @@ public partial class MusicConductor : MultiMusicPlayer
     /// </summary>
     /// <param name="track">The track to play</param>
     /// <returns>True if cued in successfully</returns>
-    private bool CueIn(GcMusicNode track)
+    private bool CueIn(GcNode track)
     {
         // Track not found or track already playing
         if (track == null || TracksCurrentlyPlaying.Contains(track) )
@@ -153,7 +153,7 @@ public partial class MusicConductor : MultiMusicPlayer
         return true;
     }
 
-    public override IEnumerable<GcMusicNode> GetVisibleTracks()
+    public override IEnumerable<GcNode> GetVisibleTracks()
     {
         return TracksCurrentlyPlaying;
     }
@@ -165,7 +165,7 @@ public partial class MusicConductor : MultiMusicPlayer
     /// <returns>True if track successfully found and added to arrangement</returns>
     public bool CueInName(string trackName)
     {
-        GcMusicNode newTrack = GetTrack(trackName);
+        GcNode newTrack = GetTrack(trackName);
         return CueIn(newTrack);
     }
     
@@ -187,7 +187,7 @@ public partial class MusicConductor : MultiMusicPlayer
     /// <returns>True if found and removed from arrangement successfully</returns>
     public bool CueOutName(string trackName)
     {
-        GcMusicNode track = GetTrack(trackName);
+        GcNode track = GetTrack(trackName);
         return CueOut(track);
     }
 
@@ -214,7 +214,7 @@ public partial class MusicConductor : MultiMusicPlayer
     public override void Pause()
     {
         base.Pause();
-        foreach (GcMusicNode t in TracksCurrentlyPlaying)
+        foreach (GcNode t in TracksCurrentlyPlaying)
         {
             t.Pause();
         }
@@ -223,7 +223,7 @@ public partial class MusicConductor : MultiMusicPlayer
     public override void Stop()
     {
         base.Stop();
-        foreach (GcMusicNode t in TracksCurrentlyPlaying)
+        foreach (GcNode t in TracksCurrentlyPlaying)
         {
             t.Stop();
         }

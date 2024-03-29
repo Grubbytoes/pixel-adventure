@@ -3,7 +3,7 @@ using Godot;
 
 namespace GoConductor;
 
-public partial class MusicTrack : GcMusicNode
+public partial class MusicTrack : GcNode
 {
     private float _gain;
     private string _busBuff;

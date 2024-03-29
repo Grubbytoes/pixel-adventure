@@ -3,13 +3,13 @@
 /// <summary>
 /// As in "That which can be affected by a transition"
 /// </summary>
-public class Transitionoid: IMusicController
+public class Transitionoid: ITrackController
 {
-    public IMusicController Target { set; get; }
+    public ITrackController Target { set; get; }
     public MusicTrack TerminalTrack { set; get; }
 
     // Transitionoid containing a generic MusicController
-    public Transitionoid(IMusicController target)
+    public Transitionoid(ITrackController target)
     {
         Target = target;
         TerminalTrack = null;

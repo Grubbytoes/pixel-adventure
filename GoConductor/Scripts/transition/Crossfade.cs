@@ -10,7 +10,7 @@ namespace GoConductor;
 /// </summary>
 public partial class Crossfade : MusicTransition
 {
-    public Crossfade(GcMusicNode parent, float duration) : base(parent, duration)
+    public Crossfade(GcNode parent, float duration) : base(parent, duration)
     {
     }
 

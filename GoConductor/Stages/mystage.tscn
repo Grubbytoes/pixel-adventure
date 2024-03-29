@@ -1,10 +1,10 @@
 [gd_scene load_steps=11 format=3 uid="uid://cl4yxjqgh1l03"]
 
 [ext_resource type="PackedScene" uid="uid://dx0lq2cyfxig1" path="res://GoConductor/Stages/BaseStage.tscn" id="1_f1qr3"]
-[ext_resource type="PackedScene" uid="uid://ceoncjdq5abt2" path="res://GoConductor/Nodes/TrackSwitch.tscn" id="2_2cpci"]
+[ext_resource type="PackedScene" uid="uid://ceoncjdq5abt2" path="res://GoConductor/Nodes/MusicSwitch.tscn" id="2_2cpci"]
 [ext_resource type="Script" path="res://GoConductor/Stages/mystage.gd" id="2_3nswm"]
-[ext_resource type="PackedScene" uid="uid://b10lkyidju0a2" path="res://GoConductor/Nodes/SimpleTrackPlayer.tscn" id="3_f3cqf"]
-[ext_resource type="PackedScene" uid="uid://6ld7k877cli" path="res://GoConductor/Nodes/TrackConductor.tscn" id="3_nmtp8"]
+[ext_resource type="PackedScene" uid="uid://b10lkyidju0a2" path="res://GoConductor/Nodes/MusicTrackPlayer.tscn" id="3_f3cqf"]
+[ext_resource type="PackedScene" uid="uid://6ld7k877cli" path="res://GoConductor/Nodes/MusicConductor.tscn" id="3_nmtp8"]
 [ext_resource type="AudioStream" uid="uid://cjdmgykpg0ut7" path="res://Music/tangerine-song/backing.mp3" id="4_j26q5"]
 [ext_resource type="AudioStream" uid="uid://balw6nrbk6yu1" path="res://Music/ebm-song/drums.mp3" id="5_bgvc0"]
 [ext_resource type="AudioStream" uid="uid://b4dfcwttl0ju" path="res://Music/tangerine-song/melody.mp3" id="5_etgx7"]
