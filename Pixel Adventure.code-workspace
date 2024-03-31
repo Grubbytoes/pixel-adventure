@@ -1,0 +1,13 @@
+{
+    "folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"godotTools.editorPath.godot4": "c:\\Program Files\\Godot\\Godot_v4.2.1-stable_mono_win64.exe",
+		"files.exclude": {
+			"*.tscn": true
+		}
+	}
+}
