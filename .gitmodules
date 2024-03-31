@@ -1,0 +1,4 @@
+[submodule "kill-me"]
+	path = kill-me
+	url = https://github.com/Grubbytoes/GoConductor.git
+	branch = post-demo
