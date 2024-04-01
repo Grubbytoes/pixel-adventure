@@ -7,6 +7,6 @@
         <RootNamespace>GoConductor</RootNamespace>
     </PropertyGroup>
     <ItemGroup>
-      <Content Include="Scripts\settings.txt" />
+        <Content Include="Scripts\settings.txt"/>
     </ItemGroup>
 </Project>

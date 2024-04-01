@@ -11,4 +11,6 @@ public interface ITrackController
     public void Restart();
 
     public void TogglePause();
+
+    public void PlayFrom(float position);
 }

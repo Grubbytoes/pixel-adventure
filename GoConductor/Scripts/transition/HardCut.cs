@@ -1,7 +1,7 @@
 ﻿namespace GoConductor;
 
 /// <summary>
-/// Easiest thing in the world, just straight stops one track and starts the other
+///     Easiest thing in the world, just straight stops one track and starts the other
 /// </summary>
 public partial class HardCut : MusicTransition
 {
@@ -14,17 +14,11 @@ public partial class HardCut : MusicTransition
         base.Start();
 
         // Stop outgoing tracks
-        foreach (var t in Outgoing)
-        {
-            t.Stop();
-        }
-        
+        foreach (var t in Outgoing) t.Stop();
+
         // Start incoming tracks
-        foreach (var t in Incoming)
-        {
-            t.Play();
-        }
-        
+        foreach (var t in Incoming) t.Play();
+
         // Done
         CloseTween();
     }

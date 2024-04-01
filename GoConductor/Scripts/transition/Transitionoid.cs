@@ -1,13 +1,10 @@
 ﻿namespace GoConductor;
 
 /// <summary>
-/// As in "That which can be affected by a transition"
+///     As in "That which can be affected by a transition"
 /// </summary>
-public class Transitionoid: ITrackController
+public class Transitionoid : ITrackController
 {
-    public ITrackController Target { set; get; }
-    public MusicTrack TerminalTrack { set; get; }
-
     // Transitionoid containing a generic MusicController
     public Transitionoid(ITrackController target)
     {
@@ -21,6 +18,9 @@ public class Transitionoid: ITrackController
         Target = target;
         TerminalTrack = target;
     }
+
+    public ITrackController Target { set; get; }
+    public MusicTrack TerminalTrack { set; get; }
 
     public void Play()
     {
@@ -45,5 +45,10 @@ public class Transitionoid: ITrackController
     public void TogglePause()
     {
         Target.TogglePause();
+    }
+
+    public void PlayFrom(float position)
+    {
+        Target.PlayFrom(position);
     }
 }

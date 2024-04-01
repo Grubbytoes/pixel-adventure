@@ -7,10 +7,10 @@ namespace GoConductor;
 
 public class SettingsReader
 {
+    private static readonly Dictionary<string, string> _settingsDict = ReadSettings("GoConductor/settings.txt");
     public static string WelcomeMessage => _settingsDict["welcomeMessage"];
     public static string MusicBus => _settingsDict["musicBus"];
 
-    private static Dictionary<string, string> _settingsDict = ReadSettings("GoConductor/settings.txt");
     private static Dictionary<string, string> ReadSettings(string path)
     {
         string[] raw;
@@ -25,11 +25,11 @@ public class SettingsReader
         }
 
         var dict = new Dictionary<string, string>();
-        
+
         // Iterate through each line
         foreach (var line in raw)
         {
-            var split = line.Replace(" ", "").Split(':');   
+            var split = line.Replace(" ", "").Split(':');
             dict.Add(split[0], split[1]);
         }
 

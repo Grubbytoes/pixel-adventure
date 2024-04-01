@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using Godot;
+﻿using System.Collections.Generic;
 
 namespace GoConductor;
 
 public abstract partial class MultiTrackPlayer : GcNode
 {
     /// <summary>
-    /// Finds the track of the given name
+    ///     Finds the track of the given name
     /// </summary>
     /// <param name="trackName">The name of the track</param>
     /// <returns>The track, or null if it cannot be found</returns>
@@ -15,32 +13,26 @@ public abstract partial class MultiTrackPlayer : GcNode
     {
         var found = GetNode(trackName);
 
-        if (found is GcNode track)
-        {
-            return track;
-        }
+        if (found is GcNode track) return track;
 
         return null;
     }
 
     /// <summary>
-    /// Finds the track of the given index. Note that indexing INCLUDES any NON track children of the conductor, if any
-    /// exists.
+    ///     Finds the track of the given index. Note that indexing INCLUDES any NON track children of the conductor, if any
+    ///     exists.
     /// </summary>
     /// <param name="idx"></param>
     /// <returns>The track, or null if the index is out of bounds, or points to a non track node</returns>
     protected GcNode GetTrack(int idx)
     {
-        if (idx < GetChildCount() && GetChild(idx) is GcNode track)
-        {
-            return track;
-        }
+        if (idx < GetChildCount() && GetChild(idx) is GcNode track) return track;
 
         return null;
     }
 
     /// <summary>
-    /// Finds the given track by name, and calls the Cue method on it
+    ///     Finds the given track by name, and calls the Cue method on it
     /// </summary>
     /// <param name="trackName"></param>
     /// <returns>True if found</returns>
@@ -51,7 +43,7 @@ public abstract partial class MultiTrackPlayer : GcNode
     }
 
     /// <summary>
-    /// Finds the given track by index, and calls the Cue method on it
+    ///     Finds the given track by index, and calls the Cue method on it
     /// </summary>
     /// <param name="idx"></param>
     /// <returns>True if found</returns>

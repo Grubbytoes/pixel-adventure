@@ -60,7 +60,7 @@ public abstract partial class GcNode : Node, ITrackController
             Play();
     }
 
-    
+
     public virtual void PlayFrom(float position)
     {
         PlayHead = position;
