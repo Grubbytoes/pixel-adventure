@@ -72,8 +72,8 @@ func load_settings():
 
 	for line in settings_raw.split("\n"):
 		if !line: break
-		var kv = line.replace(" ", "").split(":")
-		_settings[kv[0]] = kv[1]
+		var kv = line.split(":")
+		_settings[kv[0].strip_edges()] = kv[1].strip_edges()
 
 
 func _ready():
@@ -91,7 +91,6 @@ func _instance_stage(path: String) -> Node:
 
 func get_music_bus_idx() -> int:
 	var idx = AudioServer.get_bus_index(_settings["musicBus"])
-	print(idx)
 	return idx
 
 
