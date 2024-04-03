@@ -7,6 +7,7 @@ func say_hello():
 	print("Hello, from GoConductor!")
 
 
+# Gets the first level cilde(ren) of stage scene, either as a single object, an ordered array, or a string/node dictionary
 func get_stage_pointer(stage_name) -> Node:
 	# Check that the stage even exisits
 	if !_stages.has(stage_name):
@@ -15,7 +16,7 @@ func get_stage_pointer(stage_name) -> Node:
 
 	return _stages.get(stage_name).pointer
 
-
+# Returns the stage object itself, useful for accessing user-defined properties in extended scripts.
 func get_stage(stage_name) -> BaseStage:
 	# Check that the stage even exisits
 	if !_stages.has(stage_name):
@@ -50,7 +51,7 @@ func unstage(stage_name: String) -> bool:
 	if stage != null: stage.queue_free()
 	return _stages.erase(stage_name)
 
-
+## Loads in a new scene in the same place, with the same pseudonym, as an existing one
 func swap_stage(new_stage_name: String, stage_name: String) -> bool:
 	if !_stages.has(stage_name):
 		return false
@@ -68,15 +69,17 @@ func swap_stage(new_stage_name: String, stage_name: String) -> bool:
 	return true
 
 
+## Mutes whichever bus is marked for music in settings.txt
 func mute_music(mute=true):
 	AudioServer.set_bus_mute(get_music_bus_idx(), mute)
 
 
+## Mutes whichever bus is marked for sound effects in settings.txt
 func mute_sfx(mute=true):
 	AudioServer.set_bus_mute(get_sfx_bus_idx(), mute)
 
 
-func load_settings():
+func _load_settings():
 	var settings_raw = FileAccess.open("GoConductor/settings.txt", FileAccess.READ).get_as_text()
 
 	for line in settings_raw.split("\n"):
@@ -86,7 +89,7 @@ func load_settings():
 
 
 func _ready():
-	load_settings()
+	_load_settings()
 	
 
 func _to_path(somestr: String) -> String:
@@ -98,11 +101,13 @@ func _instance_stage(path: String) -> Node:
 	return s.instantiate()
 
 
+## Returns the index of whiever bus is marked for music
 func get_music_bus_idx() -> int:
 	var idx = AudioServer.get_bus_index(_settings["musicBus"])
 	return idx
 
 
+## Returns the index of whichever bus is marked for sound effects
 func get_sfx_bus_idx() -> int:
 	return AudioServer.get_bus_index(_settings["soundEffectsBus"])
 
