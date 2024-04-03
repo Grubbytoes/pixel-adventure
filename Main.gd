@@ -37,6 +37,6 @@ func _ready():
 	title_screen.visible = true
 	hud.visible = false
 	GoConductor.load_stage("mystage", "music")
-	music_stage = GoConductor.get_stage("music")
+	music_stage = GoConductor.get_stage_pointer("music")
 	music_stage.CueName("northstar")
 	music_stage.Play()

@@ -7,13 +7,22 @@ func say_hello():
 	print("Hello, from GoConductor!")
 
 
-func get_stage(stage_name) -> Node:
+func get_stage_pointer(stage_name) -> Node:
 	# Check that the stage even exisits
 	if !_stages.has(stage_name):
 		printerr("GoConductor: The stage '"+stage_name+"' does not exists has has not been staged")
 		return null
 
 	return _stages.get(stage_name).pointer
+
+
+func get_stage(stage_name) -> BaseStage:
+	# Check that the stage even exisits
+	if !_stages.has(stage_name):
+		printerr("GoConductor: The stage '"+stage_name+"' does not exists has has not been staged")
+		return null
+
+	return _stages.get(stage_name)
 
 
 ## Loads the stage of the given name from the stages directory. Returns true if successful

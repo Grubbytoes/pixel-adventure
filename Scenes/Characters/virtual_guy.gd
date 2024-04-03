@@ -10,8 +10,8 @@ func _physics_process(delta):
 
 
 func on_targeted():
-	GoConductor.get_stage("music").CurrentlyPlaying.CueInName("attacked")
+	GoConductor.get_stage_pointer("music").CurrentlyPlaying.CueInName("attacked")
 
 
 func on_targeted_stopped():
-	GoConductor.get_stage("music").CurrentlyPlaying.CueOutName("attacked")
+	GoConductor.get_stage_pointer("music").CurrentlyPlaying.CueOutName("attacked")
