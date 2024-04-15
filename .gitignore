@@ -7,3 +7,4 @@ global.json
 # VScode shit
 .vscode
 Pixel Adventure.code-workspace
+.sln.DotSettings.user
