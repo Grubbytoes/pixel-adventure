@@ -1,0 +1,36 @@
+[gd_scene load_steps=10 format=3 uid="uid://cee3kcbp6jpmh"]
+
+[ext_resource type="PackedScene" uid="uid://dx0lq2cyfxig1" path="res://GoConductor/Stages/BaseStage.tscn" id="1_o6num"]
+[ext_resource type="PackedScene" uid="uid://ceoncjdq5abt2" path="res://GoConductor/Nodes/MusicSwitch.tscn" id="2_3o4il"]
+[ext_resource type="PackedScene" uid="uid://6ld7k877cli" path="res://GoConductor/Nodes/MusicConductor.tscn" id="3_4owup"]
+[ext_resource type="PackedScene" uid="uid://b10lkyidju0a2" path="res://GoConductor/Nodes/MusicTrackPlayer.tscn" id="4_a433b"]
+[ext_resource type="AudioStream" uid="uid://cjdmgykpg0ut7" path="res://Music/tangerine-song/backing.mp3" id="5_irq66"]
+[ext_resource type="AudioStream" uid="uid://b4dfcwttl0ju" path="res://Music/tangerine-song/melody.mp3" id="6_e60gm"]
+[ext_resource type="AudioStream" uid="uid://c66k7eirobaes" path="res://Music/ebm-song/bass.mp3" id="7_kfuqx"]
+[ext_resource type="AudioStream" uid="uid://balw6nrbk6yu1" path="res://Music/ebm-song/drums.mp3" id="8_oto2x"]
+[ext_resource type="AudioStream" uid="uid://dgid6rewmxegh" path="res://Music/mackster.mp3" id="9_l7h0v"]
+
+[node name="baseStage" instance=ExtResource("1_o6num")]
+
+[node name="switch" parent="." index="0" instance=ExtResource("2_3o4il")]
+
+[node name="tangerine" parent="switch" index="0" instance=ExtResource("3_4owup")]
+StupidBoolArray = [false, false]
+
+[node name="backing" parent="switch/tangerine" index="0" instance=ExtResource("4_a433b")]
+Track = ExtResource("5_irq66")
+
+[node name="melody" parent="switch/tangerine" index="1" instance=ExtResource("4_a433b")]
+Track = ExtResource("6_e60gm")
+
+[node name="ebm" parent="switch" index="1" instance=ExtResource("3_4owup")]
+StupidBoolArray = [false, false]
+
+[node name="bass" parent="switch/ebm" index="0" instance=ExtResource("4_a433b")]
+Track = ExtResource("7_kfuqx")
+
+[node name="drums" parent="switch/ebm" index="1" instance=ExtResource("4_a433b")]
+Track = ExtResource("8_oto2x")
+
+[node name="mackster" parent="switch" index="2" instance=ExtResource("4_a433b")]
+Track = ExtResource("9_l7h0v")
