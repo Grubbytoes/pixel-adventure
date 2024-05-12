@@ -124,3 +124,14 @@ func _ready():
 	woosh_time.timeout.connect(woosh_time_over)
 	pass_control_buffer.one_shot = true
 	
+
+func on_targeted():
+	var song = GoConductor.get_stage_pointer('music').CurrentlyPlaying
+	if currently_controlled and song.has_method('CueInIdx'):
+		song.CueInIdx(1)
+
+
+func on_targeted_stopped():
+	var song = GoConductor.get_stage_pointer('music').CurrentlyPlaying
+	if currently_controlled and song.has_method('CueOutIdx'):
+		song.CueOutIdx(1)

@@ -18,4 +18,6 @@ layer = 0
 follow_viewport_enabled = true
 
 [connection signal="play_pressed" from="title_screen" to="." method="title_screen_play_pressed"]
+[connection signal="on_mute" from="hud" to="." method="mute_music"]
+[connection signal="on_pause" from="hud" to="." method="pause_effect"]
 [connection signal="on_quit" from="hud" to="." method="return_to_title"]

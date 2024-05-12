@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dx0lq2cyfxig1"]
+
+[ext_resource type="Script" path="res://GoConductor/Scripts/BaseStage.gd" id="1_ngxu3"]
+
+[node name="baseStage" type="Node2D"]
+script = ExtResource("1_ngxu3")

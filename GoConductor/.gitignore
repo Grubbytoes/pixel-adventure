@@ -1,0 +1,11 @@
+# VScode shit
+.vscode
+.code-workspace
+
+# Help me keep my sanity if I do decide to open this in any other editor
+.godot/
+.idea/
+
+# I'll reserve this as a testing environment
+Stages/*
+!Stages/BaseStage.tscn
